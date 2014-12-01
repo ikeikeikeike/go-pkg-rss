@@ -166,6 +166,11 @@ func (this *Feed) readRss2(doc *xmlx.Document) (err error) {
 
 			i.PubDate = item.S(ns, "pubDate")
 
+			i.Subject = item.S(ns, "subject")
+			i.Creator = item.S(ns, "creator")
+			i.Date = item.S(ns, "date")
+			i.Encoded = item.S(ns, "encoded")
+
 			tl = item.SelectNodes(ns, "category")
 			for _, lv := range tl {
 				cat := new(Category)

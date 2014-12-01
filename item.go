@@ -19,6 +19,11 @@ type Item struct {
 	PubDate     string
 	Source      *Source
 
+	Creator string
+	Encoded string
+	Date    string
+	Subject string
+
 	// Atom specific fields
 	Id           string
 	Generator    *Generator
