@@ -18,11 +18,11 @@ type Item struct {
 	Guid        *string
 	PubDate     string
 	Source      *Source
-
-	Creator string
-	Encoded string
-	Date    string
-	Subject string
+	Creator     string
+	Encoded     string
+	Date        string
+	Subject     string
+	Publisher   string
 
 	// Atom specific fields
 	Id           string
