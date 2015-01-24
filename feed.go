@@ -27,11 +27,12 @@ package feeder
 
 import (
 	"fmt"
-	xmlx "github.com/jteeuwen/go-pkg-xmlx"
 	"net/http"
 	"strconv"
 	"strings"
 	"time"
+
+	xmlx "github.com/jteeuwen/go-pkg-xmlx"
 )
 
 type UnsupportedFeedError struct {
@@ -138,7 +139,8 @@ func (this *Feed) LastUpdate() time.Time {
 //
 // This is equivalent to calling FetchClient with http.DefaultClient
 func (this *Feed) Fetch(uri string, charset xmlx.CharsetFunc) (err error) {
-	return this.FetchClient(uri, http.DefaultClient, charset)
+	client := &http.Client{Timeout: time.Duration(20) * time.Second}
+	return this.FetchClient(uri, client, charset)
 }
 
 // Fetch retrieves the feed's latest content if necessary.
